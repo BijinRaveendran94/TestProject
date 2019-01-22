@@ -17,13 +17,13 @@ public class TestClass  {
 
     private JSONArray nodes;
 
-    ArrayList<JSONObject> nodesHash;
-    List<JSONObject> waypoints;
-    LatLng sourceNode;
-    LatLng destinationNode;
-    ArrayList<LatLng> visitedNodes;
-    JSONObject shortestNodesHash;
-    ArrayList<ArrayList<LatLng>> shortestWaypoints = new ArrayList<ArrayList<LatLng>>();
+    public  static  ArrayList<JSONObject> nodesHash;
+    public  static  List<JSONObject> waypoints;
+    public  static  LatLng sourceNode;
+    public  static  LatLng destinationNode;
+    public  static  ArrayList<LatLng> visitedNodes;
+    public  static  JSONObject shortestNodesHash;
+    public  static  ArrayList<ArrayList<LatLng>> shortestWaypoints = new ArrayList<ArrayList<LatLng>>();
 
 
     public static List<JSONObject> getWaypointsForRoom(String json, JSONObject room) {
@@ -344,8 +344,9 @@ public class TestClass  {
         return node;
     }
 
-    public JSONObject getPathFromSource(LatLng location, LatLng destination, List<JSONObject> Waypoints) {
+    public static JSONObject getPathFromSource(LatLng location, LatLng destination, List<JSONObject> Waypoints) {
         try {
+
 
             nodesHash = getNodesForWaypoints(Waypoints);
             visitedNodes = new ArrayList<LatLng>();
@@ -365,7 +366,7 @@ public class TestClass  {
         return null;
     }
 
-    private LatLng getNearestNodeFor(LatLng location) {
+    public static LatLng getNearestNodeFor(LatLng location) {
         try {
 
             LatLng selectedNode = null;
@@ -401,7 +402,7 @@ public class TestClass  {
         return null;
     }
 
-    public JSONObject getPathFromSource(LatLng source, double distance) {
+    public static JSONObject getPathFromSource(LatLng source, double distance) {
 
         try {
 
