@@ -32,7 +32,12 @@ public class TestClass  {
 
             JSONObject metaData = new JSONObject(json);
             JSONArray buildings = metaData.getJSONArray("Countries").getJSONObject(0).getJSONArray("States").getJSONObject(0).getJSONArray("Cities").getJSONObject(0).getJSONArray("Buildings");
-            JSONArray getCampusWaypoints = metaData.getJSONArray("Countries").getJSONObject(0).getJSONArray("States").getJSONObject(0).getJSONArray("Cities").getJSONObject(0).getJSONArray("CampusWaypoints");
+            JSONArray getCampusWaypoints = null;
+            try {
+                getCampusWaypoints = metaData.getJSONArray("Countries").getJSONObject(0).getJSONArray("States").getJSONObject(0).getJSONArray("Cities").getJSONObject(0).getJSONArray("CampusWaypoints");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             JSONArray Floors = null;
             for (int i = 0; i < buildings.length(); i++) {
 
@@ -65,8 +70,12 @@ public class TestClass  {
                             for (int m = 0; m < Waypoints.length(); m++) {
                                 jsonObject.add(Waypoints.getJSONObject(m));
                             }
-                            for (int n = 0; n < getCampusWaypoints.length(); n++) {
-                                jsonObject.add(getCampusWaypoints.getJSONObject(n));
+                            try {
+                                for (int n = 0; n < getCampusWaypoints.length(); n++) {
+                                    jsonObject.add(getCampusWaypoints.getJSONObject(n));
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
                             arrayList = jsonObject;
                             break;
