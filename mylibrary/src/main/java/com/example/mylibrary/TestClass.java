@@ -74,7 +74,7 @@ public class TestClass  {
                                 for (int n = 0; n < getCampusWaypoints.length(); n++) {
                                     jsonObject.add(getCampusWaypoints.getJSONObject(n));
                                 }
-                            } catch (JSONException e) {
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                             arrayList = jsonObject;
